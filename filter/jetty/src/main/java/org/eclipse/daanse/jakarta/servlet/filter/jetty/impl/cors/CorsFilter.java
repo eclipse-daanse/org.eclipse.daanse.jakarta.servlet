@@ -22,9 +22,8 @@ import org.osgi.service.servlet.whiteboard.annotations.RequireHttpWhiteboard;
 import jakarta.servlet.Filter;
 
 @Component(service = Filter.class, configurationPid = Constants.PID_FILTER_CORS)
-@Designate(ocd = CorsFilterConfig.class)
+@Designate(ocd = CorsFilterConfig.class, factory = true)
 @RequireHttpWhiteboard
 public class CorsFilter extends CrossOriginFilter {
-
 
 }

@@ -21,11 +21,14 @@
   </parent>
   <artifactId>org.eclipse.daanse.jakarta.servlet.filter.jetty</artifactId>
 
+  <name>Eclipse Daanse Jakarta Servlet Jetty Filters</name>
+  <description>Jetty-specific servlet filters for Eclipse Daanse</description>
+
   <dependencies>
     <dependency>
       <groupId>org.eclipse.jetty.ee10</groupId>
       <artifactId>jetty-ee10-servlets</artifactId>
-      <version>12.0.10</version>
+      <version>12.0.23</version>
       <scope>compile</scope>
     </dependency>
     <dependency>

@@ -26,7 +26,7 @@ public class Constants {
     /**
      * PID of the CrossOriginFilter
      */
-    public static final String PID_FILTER_CORS = "org.eclipse.daanse.jakarta.servlet.filter.jetty.CorsFilter";
+    public static final String PID_FILTER_CORS = "daanse.jakarta.servlet.filter.jetty.CorsFilter";
 
     /**
      * {@link CrossOriginFilter#ALLOWED_ORIGINS_PARAM} Configuration Property for
