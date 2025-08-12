@@ -19,11 +19,14 @@
   <parent>
     <groupId>org.eclipse.daanse</groupId>
     <artifactId>org.eclipse.daanse.pom.parent</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
   </parent>
   <artifactId>org.eclipse.daanse.jakarta.servlet</artifactId>
   <version>${revision}</version>
   <packaging>pom</packaging>
+
+  <name>Eclipse Daanse Jakarta Servlet</name>
+  <description>Jakarta Servlet components and filters for Eclipse Daanse</description>
 
   <properties>
     <revision>0.0.1-SNAPSHOT</revision>

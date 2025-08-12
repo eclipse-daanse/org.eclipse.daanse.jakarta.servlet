@@ -21,6 +21,8 @@
   </parent>
   <artifactId>org.eclipse.daanse.jakarta.servlet.soap</artifactId>
 
+  <name>Eclipse Daanse Jakarta Servlet SOAP</name>
+  <description>Jakarta SOAP servlet components for Eclipse Daanse</description>
 
   <dependencies>
 
