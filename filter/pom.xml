@@ -25,6 +25,6 @@
   <name>Eclipse Daanse Jakarta Servlet Filters</name>
   <description>Jakarta Servlet filters for Eclipse Daanse</description>
   <modules>
-    <module>jetty</module>
+    <module>cors</module>
   </modules>
 </project>
