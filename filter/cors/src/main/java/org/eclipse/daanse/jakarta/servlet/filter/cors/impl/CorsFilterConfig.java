@@ -20,9 +20,9 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 /**
  * OSGi Metatype configuration interface for the CORS filter.
  *
- * This annotation interface defines all configurable properties for the CORS filter,
- * including localization keys for property names and descriptions.
- * The configuration supports internationalization through OSGi localization bundles.
+ * This annotation interface defines all configurable properties for the CORS filter, including
+ * localization keys for property names and descriptions. The configuration supports
+ * internationalization through OSGi localization bundles.
  */
 @ObjectClassDefinition(name = CorsFilterConfig.L10N_OCD_CORS_FILTER_NAME, description = CorsFilterConfig.L10N_OCD_CORS_FILTER_DESCRIPTION, localization = CorsFilterConfig.OCD_LOCALIZATION)
 public @interface CorsFilterConfig {
@@ -83,8 +83,8 @@ public @interface CorsFilterConfig {
     boolean DEFAULT_CHAIN_PREFLIGHT = true;
 
     /**
-     * Configures the allowed origins for CORS requests.
-     * Use "*" to allow all origins, or specify exact origins or wildcard patterns.
+     * Configures the allowed origins for CORS requests. Use "*" to allow all origins, or specify exact
+     * origins or wildcard patterns.
      */
     @AttributeDefinition(name = L10N_ALLOWED_ORIGINS_NAME, description = L10N_ALLOWED_ORIGINS_DESCRIPTION)
     String[] allowedOrigins() default {};
@@ -102,11 +102,10 @@ public @interface CorsFilterConfig {
     String[] allowedMethods() default { "GET", "POST", "HEAD" };
 
     /**
-     * Configures the request headers allowed for CORS requests.
-     * Use "*" to allow all headers.
+     * Configures the request headers allowed for CORS requests. Use "*" to allow all headers.
      */
     @AttributeDefinition(name = L10N_ALLOWED_HEADERS_NAME, description = L10N_ALLOWED_HEADERS_DESCRIPTION)
-    String[] allowedHeaders() default { "X-Requested-With", "Content-Type", "Accept,Origin" };
+    String[] allowedHeaders() default { "X-Requested-With", "Content-Type", "Accept", "Origin" };
 
     /**
      * Configures how long (in seconds) preflight responses can be cached by browsers.
@@ -129,7 +128,8 @@ public @interface CorsFilterConfig {
     String[] exposedHeaders() default {};
 
     /**
-     * Configures whether preflight requests are forwarded to the application or handled entirely by the filter.
+     * Configures whether preflight requests are forwarded to the application or handled entirely by the
+     * filter.
      */
     @AttributeDefinition(name = L10N_CHAIN_PREFLIGHT_NAME, description = L10N_CHAIN_PREFLIGHT_DESCRIPTION, defaultValue = DEFAULT_CHAIN_PREFLIGHT
             + "")
