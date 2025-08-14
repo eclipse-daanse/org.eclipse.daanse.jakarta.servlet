@@ -327,11 +327,6 @@ class CorsFilterIntegrationTest {
                 }
 
                 @Override
-                public String[] allowedOriginsPatterns() {
-                    return new String[] {};
-                }
-
-                @Override
                 public String[] allowedTimingOrigins() {
                     return allowedTimingOrigins;
                 }
