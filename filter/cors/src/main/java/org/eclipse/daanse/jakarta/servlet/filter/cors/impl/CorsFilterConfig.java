@@ -90,12 +90,6 @@ public @interface CorsFilterConfig {
     String[] allowedOrigins() default {};
 
     /**
-     * Additional origin patterns for more complex origin matching.
-     */
-    @AttributeDefinition(name = L10N_ALLOWED_ORIGINS_NAME, description = L10N_ALLOWED_ORIGINS_DESCRIPTION)
-    String[] allowedOriginsPatterns() default {};
-
-    /**
      * Configures origins allowed to access timing information via Timing-Allow-Origin header.
      */
     @AttributeDefinition(name = L10N_ALLOWED_TIMING_ORIGINS_NAME, description = L10N_ALLOWED_TIMING_ORIGINS_DESCRIPTION, defaultValue = {})
