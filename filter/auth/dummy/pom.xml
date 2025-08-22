@@ -11,21 +11,17 @@
 **********************************************************************/
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.eclipse.daanse</groupId>
-    <artifactId>org.eclipse.daanse.jakarta.servlet</artifactId>
+    <artifactId>org.eclipse.daanse.jakarta.servlet.filter.auth</artifactId>
     <version>${revision}</version>
   </parent>
-  <artifactId>org.eclipse.daanse.jakarta.servlet.filter</artifactId>
+  <artifactId>org.eclipse.daanse.jakarta.servlet.filter.auth.dummy</artifactId>
   <packaging>pom</packaging>
-
-  <name>Eclipse Daanse Jakarta Servlet Filters</name>
-  <description>Jakarta Servlet filters for Eclipse Daanse</description>
   <modules>
-    <module>cors</module>
-    <module>auth</module>
+    <module>role</module>
   </modules>
 </project>
