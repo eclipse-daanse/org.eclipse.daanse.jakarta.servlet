@@ -20,6 +20,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.osgi.service.servlet.whiteboard.propertytypes.HttpWhiteboardFilterAsyncSupported;
@@ -35,11 +36,14 @@ import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+@Designate(ocd = OCD.class, factory = true)
 @HttpWhiteboardFilterName("BasicAuthPipeRoleFilter")
 @HttpWhiteboardFilterAsyncSupported
 @HttpWhiteboardFilterDispatcher
-@Component(service = Filter.class)
+@Component(service = Filter.class, configurationPid = BasicAuthPipeRoleFilter.PID)
 public class BasicAuthPipeRoleFilter implements Filter {
+
+    public static final String PID = "daanse.jakarta.servlet.filter.auth.dummy.role.BasicAuthPipeRoleFilter";
 
     private static final Logger logger = LoggerFactory.getLogger(BasicAuthPipeRoleFilter.class);
     private static final String REALM = "daanse";
