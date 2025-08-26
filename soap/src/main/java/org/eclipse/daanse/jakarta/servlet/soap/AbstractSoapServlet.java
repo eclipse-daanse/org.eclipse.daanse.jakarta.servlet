@@ -19,6 +19,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.security.Principal;
+import java.util.function.Function;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -139,7 +141,9 @@ public abstract class AbstractSoapServlet extends HttpServlet {
                 LOGGER.debug("SOAPMessage in: {}", baos);
             }
 
-            SOAPMessage responseMessage = onMessage(requestMessage);
+            Principal principal=servletRequest.getUserPrincipal();
+            Function<String, Boolean> isUserInRoleFunction = role -> servletRequest.isUserInRole(role);
+            SOAPMessage responseMessage = onMessage(requestMessage,principal,isUserInRoleFunction);
 
             if (LOGGER.isDebugEnabled()) {
                 ByteArrayOutputStream baos = getOutputStreamOfSoapMessage(responseMessage);
@@ -189,8 +193,10 @@ public abstract class AbstractSoapServlet extends HttpServlet {
      * On message.
      *
      * @param soapRequestMessage the {@link SOAPMessage} of the request
+     * @param isUserInRoleFunction
+     * @param principal
      * @return the response {@link SOAPMessage}
      */
-    protected abstract SOAPMessage onMessage(SOAPMessage soapRequestMessage);
+    protected abstract SOAPMessage onMessage(SOAPMessage soapRequestMessage, Principal principal, Function<String, Boolean> isUserInRoleFunction);
 
 }
