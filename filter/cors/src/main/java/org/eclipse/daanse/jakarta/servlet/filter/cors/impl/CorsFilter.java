@@ -202,7 +202,7 @@ public class CorsFilter implements Filter {
                     LOGGER.debug("Origin '{}' for request to {} not permitted for timing headers. Allowed timing origins: {}",
                             origin, request.getRequestURI(), allowedTimingOrigins);
                 }
-            } else if (LOGGER.isDebugEnabled()) {
+            } else if (LOGGER.isWarnEnabled()) {
                 LOGGER.warn("CORS request to {} rejected: origin '{}' not in allowed origins list: {}",
                         request.getRequestURI(), origin, allowedOrigins);
             }
