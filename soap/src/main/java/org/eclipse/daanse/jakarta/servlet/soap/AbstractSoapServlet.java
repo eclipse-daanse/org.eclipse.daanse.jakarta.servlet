@@ -143,7 +143,7 @@ public abstract class AbstractSoapServlet extends HttpServlet {
 
             Principal principal=servletRequest.getUserPrincipal();
             Function<String, Boolean> isUserInRoleFunction = role -> servletRequest.isUserInRole(role);
-            SOAPMessage responseMessage = onMessage(requestMessage,principal,isUserInRoleFunction);
+            SOAPMessage responseMessage = onMessage(requestMessage,principal,isUserInRoleFunction, servletRequest.getRequestURL().toString());
 
             if (LOGGER.isDebugEnabled()) {
                 ByteArrayOutputStream baos = getOutputStreamOfSoapMessage(responseMessage);
@@ -195,8 +195,9 @@ public abstract class AbstractSoapServlet extends HttpServlet {
      * @param soapRequestMessage the {@link SOAPMessage} of the request
      * @param isUserInRoleFunction
      * @param principal
+     * @param url
      * @return the response {@link SOAPMessage}
      */
-    protected abstract SOAPMessage onMessage(SOAPMessage soapRequestMessage, Principal principal, Function<String, Boolean> isUserInRoleFunction);
+    protected abstract SOAPMessage onMessage(SOAPMessage soapRequestMessage, Principal principal, Function<String, Boolean> isUserInRoleFunction, String url);
 
 }
