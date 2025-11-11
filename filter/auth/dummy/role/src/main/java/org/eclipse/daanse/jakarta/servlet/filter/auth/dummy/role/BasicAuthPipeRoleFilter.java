@@ -92,14 +92,6 @@ public class BasicAuthPipeRoleFilter implements Filter {
         String userPart = userPass.substring(0, sep);
         String passPart = userPass.substring(sep + 1);
 
-        // Password MUST be empty
-        if (passPart.length() != 0) {
-            String logUser = userPart.isEmpty() ? "<empty>" : userPart.split("\\|")[0];
-            logger.debug("Non-empty password provided for user '{}' from {}", logUser, request.getRemoteAddr());
-            unauthorized(response);
-            return;
-        }
-
         // Split username & roles: UserName|Role1|Role2|...
         // Handle case where userPart might be empty (only colon provided)
         final String userName;
