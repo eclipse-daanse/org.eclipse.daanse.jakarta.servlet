@@ -23,5 +23,6 @@
   <packaging>pom</packaging>
   <modules>
     <module>role</module>
+    <module>noauth</module>
   </modules>
 </project>
