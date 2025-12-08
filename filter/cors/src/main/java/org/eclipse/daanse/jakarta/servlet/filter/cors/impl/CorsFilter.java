@@ -335,7 +335,7 @@ public class CorsFilter implements Filter {
      * @return true if the method is in the allowed methods list
      */
     private boolean isMethodAllowed(HttpServletRequest request) {
-        String accessControlRequestMethod = request.getHeader(Constants.HEADER_REQUEST_ACCESS_CONTROL_REQUEST_HEADERS);
+        String accessControlRequestMethod = request.getHeader(Constants.HEADER_REQUEST_ACCESS_CONTROL_REQUEST_METHOD);
         LOGGER.debug("Validating requested method: {} = {}", Constants.HEADER_REQUEST_ACCESS_CONTROL_REQUEST_METHOD, accessControlRequestMethod);
         boolean result = false;
         if (accessControlRequestMethod != null)
