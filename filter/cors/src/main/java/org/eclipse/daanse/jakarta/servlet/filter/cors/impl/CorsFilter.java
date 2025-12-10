@@ -105,10 +105,10 @@ public class CorsFilter implements Filter {
             allowedHeaders.addAll(tmpAllowedHeaders);
         }
 
-        int preflightMaxAge = config.preflightMaxAge();
-        boolean allowCredentials = config.allowCredentials();
+        preflightMaxAge = config.preflightMaxAge();
+        allowCredentials = config.allowCredentials();
         exposedHeaders.addAll(List.of(config.exposedHeaders()));
-        boolean chainPreflight = config.chainPreflight();
+        chainPreflight = config.chainPreflight();
 
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info("CORS Filter successfully activated with configuration:");

@@ -234,7 +234,7 @@ class CorsFilterIntegrationTest {
     void rejectedRequestScenarios() throws ServletException, IOException {
         // Given
         CorsFilterConfig config = createConfig().allowedOrigins("https://allowed.com").allowedMethods("GET", "POST")
-                .allowedHeaders("Content-Type").chainPreflight(false).build();
+                .allowedHeaders("Content-Type").chainPreflight(true).build();
 
         corsFilter.activate(config);
 
