@@ -137,16 +137,26 @@ public abstract class AbstractSoapServlet extends HttpServlet {
             SOAPMessage requestMessage = createSoapMessageRequest(servletRequest);
 
             if (LOGGER.isDebugEnabled()) {
-                ByteArrayOutputStream baos = getOutputStreamOfSoapMessage(requestMessage);
+
+                ByteArrayOutputStream baos = null;
+                if (requestMessage != null) {
+                    baos = getOutputStreamOfSoapMessage(requestMessage);
+                }
                 LOGGER.debug("SOAPMessage in: {}", baos);
             }
 
-            Principal principal=servletRequest.getUserPrincipal();
+            Principal principal = servletRequest.getUserPrincipal();
             Function<String, Boolean> isUserInRoleFunction = role -> servletRequest.isUserInRole(role);
-            SOAPMessage responseMessage = onMessage(requestMessage,principal,isUserInRoleFunction, servletRequest.getRequestURL().toString());
+            SOAPMessage responseMessage = onMessage(requestMessage, principal, isUserInRoleFunction,
+                    servletRequest.getRequestURL().toString());
 
             if (LOGGER.isDebugEnabled()) {
-                ByteArrayOutputStream baos = getOutputStreamOfSoapMessage(responseMessage);
+                ByteArrayOutputStream baos = null;
+
+                if (responseMessage != null) {
+                    baos = getOutputStreamOfSoapMessage(responseMessage);
+                }
+
                 LOGGER.debug("SOAPMessage out: {}", baos);
             }
 
@@ -192,12 +202,13 @@ public abstract class AbstractSoapServlet extends HttpServlet {
     /**
      * On message.
      *
-     * @param soapRequestMessage the {@link SOAPMessage} of the request
+     * @param soapRequestMessage   the {@link SOAPMessage} of the request
      * @param isUserInRoleFunction
      * @param principal
      * @param url
      * @return the response {@link SOAPMessage}
      */
-    protected abstract SOAPMessage onMessage(SOAPMessage soapRequestMessage, Principal principal, Function<String, Boolean> isUserInRoleFunction, String url);
+    protected abstract SOAPMessage onMessage(SOAPMessage soapRequestMessage, Principal principal,
+            Function<String, Boolean> isUserInRoleFunction, String url);
 
 }
