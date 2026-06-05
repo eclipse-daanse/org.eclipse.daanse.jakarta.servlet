@@ -13,6 +13,7 @@
  */
 package org.eclipse.daanse.jakarta.servlet.filter.auth.dummy.noauth;
 
+import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
 @ObjectClassDefinition(
@@ -21,5 +22,11 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
     localization = "OSGI-INF/l10n/bundle"
 )
 public @interface OCD {
+
+    @AttributeDefinition(name = "%dummy.user.name", description = "%dummy.user.description")
+    String dummyUserName() default "NoAuthDummyUser";
+
+    @AttributeDefinition(name = "%dummy.roles.name", description = "%dummy.roles.description")
+    String[] dummyRoles() default {};
 
 }
